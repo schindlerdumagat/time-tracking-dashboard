@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     justify-content: center;
     padding: $space-500 $space-300;
-    line-height: 1.2;
+    line-height: 1.67;
 }
 
 main {
@@ -22,9 +22,12 @@ main {
 .report {
     display: grid;
     gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+    max-width: clamp(38.25rem, 2.25rem + 75vw, 69.75rem);
     width: 100%;
 
     &__header {
+        display: flex;
+        flex-direction: column;
         background-color: $navy-900;
         border-radius: $rounded-sm;
     }
@@ -40,7 +43,7 @@ main {
 
     &__user-avatar {
         width: 64px;
-        border: 3px solid $white;
+        border: 3px solid $grey-200;
         border-radius: 9999px;
     }
 
@@ -53,22 +56,23 @@ main {
     &__header-inline-text {
         display: block;
         font-size: $fs-text;
+        font-weight: 400;
         color: $navy-200;
     }
 
     &__timeframe-list {
+        align-self: center;
+        width: 100%;
+        max-width: 21.438rem;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 13%;
+        justify-content: space-around;
         padding: $space-300 0;
     }
 
     &__timeframe-btn {
-        background-color: transparent;
+        background-color: unset;
         color: $purple-500;
-        border: transparent;
-        font-size: 1.125rem;
+        border: unset;
         cursor: pointer;
 
         &:hover {
@@ -77,12 +81,9 @@ main {
     }
 
     &__card {
-        display: flex;
-        flex-direction: column;
-        position: relative;
         border-radius: $rounded-sm;
-        overflow: hidden;
-        padding-top: 13%;
+        position: relative;
+        overflow-y: hidden;
 
         &--orange {
             background-color: $orange-300;
@@ -107,7 +108,7 @@ main {
     &__card-logo {
         position: absolute;
         right: 10px;
-        top: -10px;
+        top: -15px;
     }
 
     &__card-content {
@@ -116,9 +117,9 @@ main {
         gap: clamp($space-100, 2vw, $space-300);
         position: relative;
         background-color: $navy-900;
-        border-radius: inherit;
+        border-radius: $rounded-sm;
         padding: $space-300;
-        margin-top: auto;
+        margin-top: 10%;
 
         &:hover {
             background-color: $navy-800;
@@ -127,8 +128,8 @@ main {
 
     &__card-header {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
     }
 
     &__card-title {
@@ -137,12 +138,14 @@ main {
     }
 
     &__card-btn > path {
+
         fill: $navy-200;
         cursor: pointer;
 
         &:hover {
             fill: $white;
         }
+
     }
 
     &__card-body {
@@ -162,57 +165,67 @@ main {
 }
 
 @media screen and (min-width: 26.563rem) {
+    
     .report {
 
         &__header {
             grid-column: span 2;
         }
 
+        &__card-content {
+            margin-top: 15%;
+        }
+
         &__card-body {
+            display: flex;
             flex-direction: column;
+            justify-content: space-between;
             align-items: flex-start;
-            gap: $space-100;
         }
     }
 }
 
 @media screen and (min-width: 48rem) {
+    
     .report {
-        max-width: 38.25rem;
 
         &__header {
             grid-column: span 3;
+        }
+
+        &__card-content {
+            margin-top: 18%;
         }
     }
 }
 
 @media screen and (min-width: 90rem) {
+    
     .report {
+
         grid-template-columns: repeat(4, 1fr);
-        max-width: 69.75rem;
+
+        &__header {
+            grid-column: 1 / 1;
+            grid-row: 1 / span 2;
+        }
 
         &__user-info {
-            align-items: flex-start;
             flex-direction: column;
-            padding-bottom: 7.6rem;
+            align-items: flex-start;
+            gap: 1.75rem;
+            padding-bottom: 7.3rem;
         }
 
         &__user-name {
-            line-height: 1.175;
-        }
-
-        &__header {
-            grid-column: 1 / 2;
-            grid-row: 1 / span 2;
+            line-height: 1.2;
         }
 
         &__timeframe-list {
             flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: $space-200;
+            gap: $space-300;
             padding: $space-400;
         }
+
     }
 }
-
