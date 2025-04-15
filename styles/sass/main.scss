@@ -1,0 +1,218 @@
+@use 'resets' as *;
+@use 'variables' as *;
+
+body {
+    font-family: $ff-main;
+    font-size: $fs-text;
+    font-weight: 400;
+    background-color: $navy-950;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $space-500 $space-300;
+    line-height: 1.2;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.report {
+    display: grid;
+    gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+    width: 100%;
+
+    &__header {
+        background-color: $navy-900;
+        border-radius: $rounded-sm;
+    }
+
+    &__user-info {
+        display: flex;
+        align-items: center;
+        gap: $space-300;
+        background-color: $purple-600;
+        padding: $space-400;
+        border-radius: inherit;
+    }
+
+    &__user-avatar {
+        width: 64px;
+        border: 3px solid $white;
+        border-radius: 9999px;
+    }
+
+    &__user-name {
+        font-size: $fs-heading;
+        font-weight: 300;
+        line-height: 1.67;
+    }
+
+    &__header-inline-text {
+        display: block;
+        font-size: $fs-text;
+        color: $navy-200;
+    }
+
+    &__timeframe-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 13%;
+        padding: $space-300 0;
+    }
+
+    &__timeframe-btn {
+        background-color: transparent;
+        color: $purple-500;
+        border: transparent;
+        font-size: 1.125rem;
+        cursor: pointer;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-radius: $rounded-sm;
+        overflow: hidden;
+        padding-top: 13%;
+
+        &--orange {
+            background-color: $orange-300;
+        }
+        &--blue {
+            background-color: $blue-300;
+        }
+        &--pink {
+            background-color: $pink-400;
+        }
+        &--green {
+            background-color: $green-400;
+        }
+        &--purple {
+            background-color: $purple-700;
+        }
+        &--yellow {
+            background-color: $yellow-300;
+        }
+    }
+
+    &__card-logo {
+        position: absolute;
+        right: 10px;
+        top: -10px;
+    }
+
+    &__card-content {
+        display: flex;
+        flex-direction: column;
+        gap: clamp($space-100, 2vw, $space-300);
+        position: relative;
+        background-color: $navy-900;
+        border-radius: inherit;
+        padding: $space-300;
+        margin-top: auto;
+
+        &:hover {
+            background-color: $navy-800;
+        }
+    }
+
+    &__card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__card-title {
+        font-size: $fs-subheading;
+        font-weight: 500;
+    }
+
+    &__card-btn > path {
+        fill: $navy-200;
+        cursor: pointer;
+
+        &:hover {
+            fill: $white;
+        }
+    }
+
+    &__card-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__current {
+        font-size: $fs-numbers;
+        font-weight: 300;
+    }
+
+    &__previous {
+        color: $navy-200;
+    }
+}
+
+@media screen and (min-width: 26.563rem) {
+    .report {
+
+        &__header {
+            grid-column: span 2;
+        }
+
+        &__card-body {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $space-100;
+        }
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    .report {
+        max-width: 38.25rem;
+
+        &__header {
+            grid-column: span 3;
+        }
+    }
+}
+
+@media screen and (min-width: 90rem) {
+    .report {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 69.75rem;
+
+        &__user-info {
+            align-items: flex-start;
+            flex-direction: column;
+            padding-bottom: 7.6rem;
+        }
+
+        &__user-name {
+            line-height: 1.175;
+        }
+
+        &__header {
+            grid-column: 1 / 2;
+            grid-row: 1 / span 2;
+        }
+
+        &__timeframe-list {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: $space-200;
+            padding: $space-400;
+        }
+    }
+}
+

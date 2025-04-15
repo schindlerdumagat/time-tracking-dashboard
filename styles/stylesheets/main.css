@@ -1,0 +1,288 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 0.938rem;
+  font-weight: 400;
+  background-color: #0E1323;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  line-height: 1.2;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.report {
+  display: grid;
+  gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+  width: 100%;
+}
+.report__header {
+  background-color: #1C204B;
+  border-radius: 15px;
+}
+.report__user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #5747EA;
+  padding: 2rem;
+  border-radius: inherit;
+}
+.report__user-avatar {
+  width: 64px;
+  border: 3px solid #ffffff;
+  border-radius: 9999px;
+}
+.report__user-name {
+  font-size: clamp(1.5rem, 0.3571rem + 2.381vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.67;
+}
+.report__header-inline-text {
+  display: block;
+  font-size: 0.938rem;
+  color: #BBC0FF;
+}
+.report__timeframe-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13%;
+  padding: 1.5rem 0;
+}
+.report__timeframe-btn {
+  background-color: transparent;
+  color: #7078C9;
+  border: transparent;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.report__timeframe-btn:hover {
+  color: #ffffff;
+}
+.report__card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  padding-top: 13%;
+}
+.report__card--orange {
+  background-color: #FF8B64;
+}
+.report__card--blue {
+  background-color: #55C2E6;
+}
+.report__card--pink {
+  background-color: #FF5E7D;
+}
+.report__card--green {
+  background-color: #4BCF82;
+}
+.report__card--purple {
+  background-color: #7335D2;
+}
+.report__card--yellow {
+  background-color: #F1C75B;
+}
+.report__card-logo {
+  position: absolute;
+  right: 10px;
+  top: -10px;
+}
+.report__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  position: relative;
+  background-color: #1C204B;
+  border-radius: inherit;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+.report__card-content:hover {
+  background-color: #33397A;
+}
+.report__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.report__card-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.report__card-btn > path {
+  fill: #BBC0FF;
+  cursor: pointer;
+}
+.report__card-btn > path:hover {
+  fill: #ffffff;
+}
+.report__card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.report__current {
+  font-size: clamp(2rem, 0.5687rem + 6.1069vw, 3.5rem);
+  font-weight: 300;
+}
+.report__previous {
+  color: #BBC0FF;
+}
+
+@media screen and (min-width: 26.563rem) {
+  .report__header {
+    grid-column: span 2;
+  }
+  .report__card-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+@media screen and (min-width: 48rem) {
+  .report {
+    max-width: 38.25rem;
+  }
+  .report__header {
+    grid-column: span 3;
+  }
+}
+@media screen and (min-width: 90rem) {
+  .report {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 69.75rem;
+  }
+  .report__user-info {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 7.6rem;
+  }
+  .report__user-name {
+    line-height: 1.175;
+  }
+  .report__header {
+    grid-column: 1/2;
+    grid-row: 1/span 2;
+  }
+  .report__timeframe-list {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,21 @@
+@use 'variables' as *;
+
+@mixin report-card($bgColor: $white) {
+
+    background-color: $bgColor;
+    border-radius: $rounded-sm;
+    position: relative;
+
+    & {
+        &__card-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    
+        &__card-content {
+            background-color: $navy-800;
+        }
+    }
+
+}

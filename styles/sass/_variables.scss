@@ -1,0 +1,41 @@
+// Typography
+
+$ff-main: "Rubik", sans-serif;
+
+$fs-heading: clamp(1.5rem, 0.3571rem + 2.381vw, 2.5rem);
+$fs-numbers: clamp(2rem, 0.5687rem + 6.1069vw, 3.5rem);
+$fs-subheading: 1.125rem;
+$fs-text: 0.938rem;
+
+// Colors
+
+$white: #ffffff;
+$black: #000000;
+$navy-950: #0E1323;
+$navy-900: #1C204B;
+$navy-800: #33397A;
+$navy-200: #BBC0FF;
+$orange-300: #FF8B64;
+$purple-700: #7335D2;
+$purple-600: #5747EA;
+$purple-500: #7078C9;
+$blue-300: #55C2E6;
+$pink-400: #FF5E7D;
+$green-400: #4BCF82;
+$yellow-300: #F1C75B;
+$grey-200: #D8D8D8;
+
+// Spacings
+
+$space-0: 0rem;
+$space-100: 0.5rem;
+$space-200: 1rem;
+$space-300: 1.5rem;
+$space-400: 2rem;
+$space-500: 2.5rem;
+$space-600: 3rem;
+$space-700: 3.5rem;
+
+// Border
+
+$rounded-sm: 15px
