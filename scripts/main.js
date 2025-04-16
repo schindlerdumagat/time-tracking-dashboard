@@ -20,7 +20,6 @@ let reportData;
 dailyButton.addEventListener("click", () => {
 
     if (reportData && dailyButton.getAttribute("aria-selected") !== "true") {
-        console.log('clicked')
         dailyButton.setAttribute("aria-selected", true);
         weeklyButton.setAttribute("aria-selected",false);
         monthlyButton.setAttribute("aria-selected", false);
@@ -92,8 +91,9 @@ function populateReport(fetchedData, timeFrame) {
             const previousText = document.createTextNode(`${previousInlineText} - `);
             const reportPreviousTime = document.createElement("time");
             
+            reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
             reportPreviousTime.innerHTML = `${previous}hrs`;
-            reportPreviousTime.setAttribute("datatime", `0d ${previous}h 0m 0s`)
+            reportPreviousTime.setAttribute("datetime", `0d ${previous}h 0m 0s`)
             
             element.reportCurrent.innerHTML = `${current}hrs`;
 
@@ -117,8 +117,9 @@ function initializeReport(fetchedData) {
             const previousText = document.createTextNode("Yesterday - ");
             const reportPreviousTime = document.createElement("time");
             
+            reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
             reportPreviousTime.innerHTML = `${previous}hrs`;
-            reportPreviousTime.setAttribute("datatime", `0d ${previous}h 0m 0s`)
+            reportPreviousTime.setAttribute("datetime", `0d ${previous}h 0m 0s`)
             
             element.reportCurrent.innerHTML = `${current}hrs`;
             element.reportPrevious.appendChild(previousText);
