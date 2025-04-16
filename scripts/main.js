@@ -91,12 +91,12 @@ function populateReport(fetchedData, timeFrame) {
             const previousText = document.createTextNode(`${previousInlineText} - `);
             const reportPreviousTime = document.createElement("time");
             
-            reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
             reportPreviousTime.innerHTML = `${previous}hrs`;
             reportPreviousTime.setAttribute("datetime", `0d ${previous}h 0m 0s`)
             
             element.reportCurrent.innerHTML = `${current}hrs`;
-
+            
+            element.reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
             element.reportPrevious.innerHTML = "";
             element.reportPrevious.appendChild(previousText);
             element.reportPrevious.appendChild(reportPreviousTime);
@@ -117,10 +117,11 @@ function initializeReport(fetchedData) {
             const previousText = document.createTextNode("Yesterday - ");
             const reportPreviousTime = document.createElement("time");
             
-            reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
+            
             reportPreviousTime.innerHTML = `${previous}hrs`;
             reportPreviousTime.setAttribute("datetime", `0d ${previous}h 0m 0s`)
             
+            element.reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
             element.reportCurrent.innerHTML = `${current}hrs`;
             element.reportPrevious.appendChild(previousText);
             element.reportPrevious.appendChild(reportPreviousTime);
