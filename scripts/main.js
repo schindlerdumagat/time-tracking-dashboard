@@ -19,10 +19,10 @@ let reportData;
 
 dailyButton.addEventListener("click", () => {
 
-    if (reportData && dailyButton.getAttribute("aria-pressed") !== "true") {
-        dailyButton.setAttribute("aria-pressed", true);
-        weeklyButton.setAttribute("aria-pressed",false);
-        monthlyButton.setAttribute("aria-pressed", false);
+    if (reportData && dailyButton.getAttribute("aria-selected") !== "true") {
+        dailyButton.setAttribute("aria-selected", true);
+        weeklyButton.setAttribute("aria-selected",false);
+        monthlyButton.setAttribute("aria-selected", false);
 
         dailyButton.classList.add("report__timeframe-btn--active");
         weeklyButton.classList.remove("report__timeframe-btn--active");
@@ -35,10 +35,10 @@ dailyButton.addEventListener("click", () => {
 })
 weeklyButton.addEventListener("click", () => {
 
-    if (reportData && weeklyButton.getAttribute("aria-pressed") !== "true") {
-        weeklyButton.setAttribute("aria-pressed",true);
-        dailyButton.setAttribute("aria-pressed", false);
-        monthlyButton.setAttribute("aria-pressed", false);
+    if (reportData && weeklyButton.getAttribute("aria-selected") !== "true") {
+        weeklyButton.setAttribute("aria-selected",true);
+        dailyButton.setAttribute("aria-selected", false);
+        monthlyButton.setAttribute("aria-selected", false);
         
         weeklyButton.classList.add("report__timeframe-btn--active");
         dailyButton.classList.remove("report__timeframe-btn--active");
@@ -49,10 +49,10 @@ weeklyButton.addEventListener("click", () => {
 })
 monthlyButton.addEventListener("click", () => {
 
-    if (reportData && monthlyButton.getAttribute("aria-pressed") !== "true") {
-        monthlyButton.setAttribute("aria-pressed", true);
-        weeklyButton.setAttribute("aria-pressed",false);
-        dailyButton.setAttribute("aria-pressed", false);
+    if (reportData && monthlyButton.getAttribute("aria-selected") !== "true") {
+        monthlyButton.setAttribute("aria-selected", true);
+        weeklyButton.setAttribute("aria-selected",false);
+        dailyButton.setAttribute("aria-selected", false);
         
         monthlyButton.classList.add("report__timeframe-btn--active");
         dailyButton.classList.remove("report__timeframe-btn--active");
