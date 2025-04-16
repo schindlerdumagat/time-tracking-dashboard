@@ -22,7 +22,7 @@ main {
 .report {
     display: grid;
     gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
-    max-width: clamp(38.25rem, 2.25rem + 75vw, 69.75rem);
+    max-width: clamp(40.25rem, 2.25rem + 75vw, 69.75rem);
     width: 100%;
 
     &__header {
@@ -74,8 +74,13 @@ main {
         color: $purple-500;
         border: unset;
         cursor: pointer;
+        outline: transparent;
 
-        &:hover {
+        &:hover, &:focus {
+            color: $white;
+        }
+
+        &--active {
             color: $white;
         }
     }
@@ -84,6 +89,7 @@ main {
         border-radius: $rounded-sm;
         position: relative;
         overflow-y: hidden;
+        padding-top: 10%;
 
         &--orange {
             background-color: $orange-300;
@@ -119,7 +125,8 @@ main {
         background-color: $navy-900;
         border-radius: $rounded-sm;
         padding: $space-300;
-        margin-top: 10%;
+        height: 100%;
+        cursor: pointer;
 
         &:hover {
             background-color: $navy-800;
@@ -137,21 +144,26 @@ main {
         font-weight: 500;
     }
 
-    &__card-btn > path {
-
-        fill: $navy-200;
+    &__card-btn {
+        background-color: unset;
+        border: transparent;
         cursor: pointer;
+        outline: transparent;
 
-        &:hover {
+        &:hover path, &:focus path {
             fill: $white;
         }
+    }
 
+    &__card-btn path {
+        fill: $navy-200;
     }
 
     &__card-body {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
     }
 
     &__current {
@@ -164,16 +176,27 @@ main {
     }
 }
 
-@media screen and (min-width: 26.563rem) {
+@media screen and (min-width: 23.438rem) {
     
     .report {
 
-        &__header {
-            grid-column: span 2;
+        &__card-body {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (min-width: 29.688rem) {
+    
+    .report {
+
+        &__card {
+            padding-top: 13%;
         }
 
-        &__card-content {
-            margin-top: 15%;
+        &__header {
+            grid-column: span 2;
         }
 
         &__card-body {
@@ -189,12 +212,12 @@ main {
     
     .report {
 
-        &__header {
-            grid-column: span 3;
+        &__card {
+            padding-top: 18%;
         }
 
-        &__card-content {
-            margin-top: 18%;
+        &__header {
+            grid-column: span 3;
         }
     }
 }
@@ -202,6 +225,10 @@ main {
 @media screen and (min-width: 90rem) {
     
     .report {
+
+        &__card {
+            padding-top: 15%;
+        }
 
         grid-template-columns: repeat(4, 1fr);
 

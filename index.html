@@ -37,126 +37,138 @@
           </div>
           <ul class="report__timeframe-list">
             <li class="report__timeframe-item">
-              <button class="report__timeframe-btn">Daily</button>
+              <button id="daily-button" class="report__timeframe-btn report__timeframe-btn--active" aria-selected="true">Daily</button>
             </li>
             <li class="report__timeframe-item">
-              <button class="report__timeframe-btn">Weekly</button>
+              <button id="weekly-button" class="report__timeframe-btn" aria-selected="false">Weekly</button>
             </li>
             <li class="report__timeframe-item">
-              <button class="report__timeframe-btn">Monthly</button>
+              <button id="monthly-button" class="report__timeframe-btn" aria-selected="false">Monthly</button>
             </li>
           </ul>
         </div>
-        <div id="work-report" class="report__card report__card--orange">
+        <div class="report__card report__card--orange">
           <img class="report__card-logo" src="./images/icon-work.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
               <h3 class="report__card-title">Work</h3>
-              <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                  fill-rule="evenodd"
-                />
-              </svg>
+              <button class="report__card-btn">
+                <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
             </div>
             <div class="report__card-body">
-              <time class="report__current" datetime="">32hrs</time>
-              <p class="report__previous">Last Week - <time class="report__previous-time" datetime="">36hrs</time></p>
+              <time class="report__current" datetime=""></time>
+              <p class="report__previous"></p>
             </div>
           </div>
         </div>
-        <div id="play-report" class="report__card report__card--blue">
+        <div class="report__card report__card--blue">
           <img class="report__card-logo" src="./images/icon-play.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
               <h3 class="report__card-title">Play</h3>
-              <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                <path
+              <button class="report__card-btn">
+                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                  <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
                   fill-rule="evenodd"
-                />
-              </svg>
+                  />
+                </svg>
+              </button>
             </div>
             <div class="report__card-body">
-              <time class="report__current" datetime="">32hrs</time>
-              <p class="report__previous">Last Week - <time class="report__previous-time" datetime="">36hrs</time></p>
+              <time class="report__current" datetime=""></time>
+              <p class="report__previous"></p>
             </div>
           </div>
         </div>
-        <div id="study-report" class="report__card report__card--pink">
+        <div class="report__card report__card--pink">
           <img class="report__card-logo" src="./images/icon-study.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
               <h3 class="report__card-title">Study</h3>
-              <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                  fill="#BBC0FF"
-                  fill-rule="evenodd"
-                />
-              </svg>
+              <button class="report__card-btn">
+                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
+                    fill="#BBC0FF"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
             </div>
             <div class="report__card-body">
-              <time class="report__current" datetime="">32hrs</time>
-              <p class="report__previous">Last Week - <time class="report__previous-time" datetime="">36hrs</time></p>
+              <time class="report__current" datetime=""></time>
+              <p class="report__previous"></p>
             </div>
           </div>
         </div>
-        <div id="exercise-report" class="report__card report__card--green">
+        <div class="report__card report__card--green">
           <img class="report__card-logo" src="./images/icon-exercise.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
               <h3 class="report__card-title">Exercise</h3>
-              <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                <path
+              <button class="report__card-btn">
+                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                  <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
                   fill-rule="evenodd"
-                />
-              </svg>
+                  />
+                </svg>
+              </button>
             </div>
             <div class="report__card-body">
-              <time class="report__current" datetime="">32hrs</time>
-              <p class="report__previous">Last Week - <time class="report__previous-time" datetime="">36hrs</time></p>
+              <time class="report__current" datetime=""></time>
+              <p class="report__previous"></p>
             </div>
           </div>
         </div>
-        <div id="social-report" class="report__card report__card--purple">
+        <div class="report__card report__card--purple">
           <img class="report__card-logo" src="./images/icon-social.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
               <h3 class="report__card-title">Social</h3>
-              <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                <path
+              <button class="report__card-btn"> 
+                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                  <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
                   fill-rule="evenodd"
-                />
-              </svg>
+                  />
+                </svg>
+              </button>
             </div>
             <div class="report__card-body">
-              <time class="report__current" datetime="">32hrs</time>
-              <p class="report__previous">Last Week - <time class="report__previous-time" datetime="">36hrs</time></p>
+              <time class="report__current" datetime=""></time>
+              <p class="report__previous"></p>
             </div>
           </div>
         </div>
-        <div id="self-care-report" class="report__card report__card--yellow">
+        <div class="report__card report__card--yellow">
           <img class="report__card-logo" src="./images/icon-self-care.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
               <h3 class="report__card-title">Self Care</h3>
-              <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                <path
+              <button class="report__card-btn">
+                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                  <path
                   d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
                   fill="#BBC0FF"
                   fill-rule="evenodd"
-                />
-              </svg>
+                  />
+                </svg>
+              </button>
             </div>
             <div class="report__card-body">
-              <time class="report__current" datetime="">32hrs</time>
-              <p class="report__previous">Last Week - <time class="report__previous-time" datetime="">36hrs</time></p>
+              <time class="report__current" datetime=""></time>
+              <p class="report__previous"></p>
             </div>
           </div>
         </div>
