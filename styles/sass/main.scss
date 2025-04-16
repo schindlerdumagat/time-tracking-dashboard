@@ -225,12 +225,12 @@ main {
 @media screen and (min-width: 90rem) {
     
     .report {
+        grid-template-columns: repeat(4, 1fr);
 
         &__card {
             padding-top: 15%;
         }
 
-        grid-template-columns: repeat(4, 1fr);
 
         &__header {
             grid-column: 1 / 1;
