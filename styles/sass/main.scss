@@ -250,6 +250,7 @@ main {
 
         &__timeframe-list {
             flex-direction: column;
+            align-items: flex-start;
             gap: $space-300;
             padding: $space-400;
         }
