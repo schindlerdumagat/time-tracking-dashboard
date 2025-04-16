@@ -36,12 +36,12 @@
             </h2>
           </div>
           <div class="report__timeframe-list" role="tablist">
-            <button id="daily-button" class="report__timeframe-btn report__timeframe-btn--active" aria-selected="true" role="tab">Daily</button>
-            <button id="weekly-button" class="report__timeframe-btn" aria-selected="false"  role="tab">Weekly</button>
-            <button id="monthly-button" class="report__timeframe-btn" aria-selected="false" role="tab">Monthly</button>
+            <button id="daily-button" class="report__timeframe-btn report__timeframe-btn--active" aria-selected="true" role="tab" aria-controls="work play study exercise social self-care">Daily</button>
+            <button id="weekly-button" class="report__timeframe-btn" aria-selected="false" role="tab" aria-controls="work play study exercise social self-care">Weekly</button>
+            <button id="monthly-button" class="report__timeframe-btn" aria-selected="false" role="tab" aria-controls="work play study exercise social self-care">Monthly</button>
           </div>
         </div>
-        <div class="report__card report__card--orange">
+        <div id="work" class="report__card report__card--orange">
           <img class="report__card-logo" src="./images/icon-work.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
@@ -61,7 +61,7 @@
             </div>
           </div>
         </div>
-        <div class="report__card report__card--blue">
+        <div id="play" class="report__card report__card--blue">
           <img class="report__card-logo" src="./images/icon-play.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
@@ -82,7 +82,7 @@
             </div>
           </div>
         </div>
-        <div class="report__card report__card--pink">
+        <div id="study" class="report__card report__card--pink">
           <img class="report__card-logo" src="./images/icon-study.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
@@ -103,7 +103,7 @@
             </div>
           </div>
         </div>
-        <div class="report__card report__card--green">
+        <div id="exercise" class="report__card report__card--green">
           <img class="report__card-logo" src="./images/icon-exercise.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
@@ -124,7 +124,7 @@
             </div>
           </div>
         </div>
-        <div class="report__card report__card--purple">
+        <div id="social" class="report__card report__card--purple">
           <img class="report__card-logo" src="./images/icon-social.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
@@ -145,7 +145,7 @@
             </div>
           </div>
         </div>
-        <div class="report__card report__card--yellow">
+        <div id="self-care" class="report__card report__card--yellow">
           <img class="report__card-logo" src="./images/icon-self-care.svg" alt="" />
           <div class="report__card-content">
             <div class="report__card-header">
