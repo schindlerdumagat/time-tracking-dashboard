@@ -1,139 +1,97 @@
-const dailyButton = document.querySelector("#daily-button");
-const weeklyButton = document.querySelector("#weekly-button");
-const monthlyButton = document.querySelector("#monthly-button");
+const dailyButton = document.querySelector("#daily"); // Used to set the default selected tab
+const timeFrameButtons = document.querySelectorAll(".report__timeframe-btn");
+const timeframeList = document.querySelector(".report__timeframe-list");
+const reportGrid = document.querySelector(".report__grid");
 
-const reportCards = document.querySelectorAll(".report__card");
-const editableElements = [...reportCards].map(reportCard => {
-    const reportTitle = reportCard.querySelector(".report__card-title");
-    const reportCurrent = reportCard.querySelector(".report__current");
-    const reportPrevious = reportCard.querySelector(".report__previous");
+let currentTimeFrame = 'daily';
+let cachedData;
 
-    return {
-        reportTitle: reportTitle, 
-        reportCurrent: reportCurrent,
-        reportPrevious: reportPrevious,
+// Event Listener for buttons
+timeframeList.addEventListener("click", (e) => {
+    if (cachedData && e.target.tagName === 'BUTTON') {
+        currentTimeFrame = e.target.id;
+        
+        // Remove buttons selected attributes
+        timeFrameButtons.forEach(button => {
+            button.setAttribute("aria-selected", false);
+            button.classList.remove("report__timeframe-btn--active");
+        })
+    
+        // Set selected attributes for the selected tab
+        e.target.setAttribute("aria-selected", true);
+        e.target.classList.add("report__timeframe-btn--active");
+        
+        reportGrid.innerHTML = ""; // Resets report grid
+        generateReport(cachedData, currentTimeFrame);
     }
-})
+});
 
-let reportData;
+// This generates the reports for each data
+function generateReport (reportData, timeframe) {
 
-dailyButton.addEventListener("click", () => {
+    reportData.forEach(data => {
+        const { title, timeframes } = data;
+        const { current, previous } = timeframes[timeframe];
+        const formattedTitle = title.toLowerCase().replaceAll(/ /g, "-");
+        let previousInlineText = timeframe === 'daily' ? 'Yesterday' : timeframe === 'weekly' ? 'Last Week' : 'Last Month';
 
-    if (reportData && dailyButton.getAttribute("aria-selected") !== "true") {
+        // Create card element
+        const fragment = document.createDocumentFragment();
+        const reportCard = document.createElement('div');
+        reportCard.setAttribute("id", formattedTitle);
+        reportCard.setAttribute("class", `report__card report__card--${formattedTitle}`);
+
+        reportCard.innerHTML = `
+            <img class="report__card-logo" src="./images/icon-${formattedTitle}.svg" alt="" />
+            <div class="report__card-content">
+                <div class="report__card-header">
+                <h3 id="report-work" class="report__card-title">${title}</h3>
+                <button class="report__card-btn" aria-labelledby="report-work">
+                    <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
+                        fill-rule="evenodd"
+                    />
+                    </svg>
+                </button>
+                </div>
+                <div class="report__card-body">
+                <time class="report__current" datetime="0d ${current}h 0m 0s">${current}hrs</time>
+                <p class="report__previous">${previousInlineText} - <time datetime="0d ${previous}h 0m 0s">${previous}hrs</time></p>
+                </div>
+            </div>
+        `;
+
+        fragment.appendChild(reportCard);
+        reportGrid.appendChild(fragment);
+    })
+}
+
+// Run fetching on page script load
+(async () => {
+
+    try {
+        const response = await fetch("data.json");
+    
+        if(!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const data = await response.json();
+        cachedData = data;
+        
+        // Set the daily button as the default selected tab
         dailyButton.setAttribute("aria-selected", true);
-        weeklyButton.setAttribute("aria-selected",false);
-        monthlyButton.setAttribute("aria-selected", false);
-
         dailyButton.classList.add("report__timeframe-btn--active");
-        weeklyButton.classList.remove("report__timeframe-btn--active");
-        monthlyButton.classList.remove("report__timeframe-btn--active");
 
-        populateReport(reportData, 'Daily');
+        // Initialize report upon successful data fetching
+        generateReport(data, currentTimeFrame);
+
+    } catch (err) {
+        console.error(err);
+
+        reportGrid.innerHTML = `
+            <p>Failed to fetch data</p>
+        `;
     }
-
-
-})
-weeklyButton.addEventListener("click", () => {
-
-    if (reportData && weeklyButton.getAttribute("aria-selected") !== "true") {
-        weeklyButton.setAttribute("aria-selected",true);
-        dailyButton.setAttribute("aria-selected", false);
-        monthlyButton.setAttribute("aria-selected", false);
-        
-        weeklyButton.classList.add("report__timeframe-btn--active");
-        dailyButton.classList.remove("report__timeframe-btn--active");
-        monthlyButton.classList.remove("report__timeframe-btn--active");
-
-        populateReport(reportData, 'Weekly');
-    }
-})
-monthlyButton.addEventListener("click", () => {
-
-    if (reportData && monthlyButton.getAttribute("aria-selected") !== "true") {
-        monthlyButton.setAttribute("aria-selected", true);
-        weeklyButton.setAttribute("aria-selected",false);
-        dailyButton.setAttribute("aria-selected", false);
-        
-        monthlyButton.classList.add("report__timeframe-btn--active");
-        dailyButton.classList.remove("report__timeframe-btn--active");
-        weeklyButton.classList.remove("report__timeframe-btn--active");
-
-        populateReport(reportData, 'Monthly');
-    }
-    
-})
-
-async function fetchData() {
-    const response = await fetch("data.json");
-    
-    if(!response.ok) {
-        throw new Error("Failed to fetch data");
-    }
-    const data = await response.json();
-    return data;
-}
-
-function populateReport(fetchedData, timeFrame) {
-
-    editableElements.forEach(element => {
-        const data = fetchedData.find(data => element.reportTitle.innerHTML === data.title)
-
-        if (data) {
-
-            const selectedTimeFrame = timeFrame === 'Daily' ? data.timeframes.daily :
-                                      timeFrame === 'Weekly' ? data.timeframes.weekly :
-                                      data.timeframes.monthly
-
-            const { current, previous } = selectedTimeFrame;
-
-            const previousInlineText = timeFrame === 'Daily' ? 'Yesterday' : timeFrame === 'Weekly' ? 'Last Week' : 'Last Month'
-            
-            const previousText = document.createTextNode(`${previousInlineText} - `);
-            const reportPreviousTime = document.createElement("time");
-            
-            reportPreviousTime.innerHTML = `${previous}hrs`;
-            reportPreviousTime.setAttribute("datetime", `0d ${previous}h 0m 0s`)
-            
-            element.reportCurrent.innerHTML = `${current}hrs`;
-            
-            element.reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
-            element.reportPrevious.innerHTML = "";
-            element.reportPrevious.appendChild(previousText);
-            element.reportPrevious.appendChild(reportPreviousTime);
-        }
-    
-    })
-
-}
-
-function initializeReport(fetchedData) {
-
-    editableElements.forEach(element => {
-        const data = fetchedData.find(data => element.reportTitle.innerHTML === data.title);
-
-        if (data) {
-            const { current, previous } = data.timeframes.daily;
-            
-            const previousText = document.createTextNode("Yesterday - ");
-            const reportPreviousTime = document.createElement("time");
-            
-            
-            reportPreviousTime.innerHTML = `${previous}hrs`;
-            reportPreviousTime.setAttribute("datetime", `0d ${previous}h 0m 0s`)
-            
-            element.reportCurrent.setAttribute("datetime", `0d ${current}h 0m 0s`);
-            element.reportCurrent.innerHTML = `${current}hrs`;
-            element.reportPrevious.appendChild(previousText);
-            element.reportPrevious.appendChild(reportPreviousTime);
-        }
-    
-    })
-
-}
-
-fetchData()
-.then(data => {
-    reportData = data;
-    initializeReport(data)
-})
-.catch(err => console.error(err));
+})();
