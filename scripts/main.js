@@ -131,6 +131,7 @@ function initializeReport(fetchedData) {
 
 }
 
+// Testing Only
 fetchData()
 .then(data => {
     reportData = data;
