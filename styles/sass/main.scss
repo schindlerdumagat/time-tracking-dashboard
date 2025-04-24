@@ -20,7 +20,8 @@ main {
 }
 
 .report {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
     max-width: clamp(40.25rem, 2.25rem + 75vw, 69.75rem);
     width: 100%;
@@ -61,6 +62,7 @@ main {
     }
 
     &__timeframe-list {
+        margin: 0 auto;
         align-self: center;
         width: 100%;
         max-width: 21.438rem;
@@ -85,28 +87,34 @@ main {
         }
     }
 
+    &__grid {
+        display: grid;
+        gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+        width: 100%;
+    }
+
     &__card {
         border-radius: $rounded-sm;
         position: relative;
         overflow-y: hidden;
         padding-top: 10%;
 
-        &--orange {
+        &--work {
             background-color: $orange-300;
         }
-        &--blue {
+        &--play {
             background-color: $blue-300;
         }
-        &--pink {
+        &--study {
             background-color: $pink-400;
         }
-        &--green {
+        &--exercise {
             background-color: $green-400;
         }
-        &--purple {
+        &--social {
             background-color: $purple-700;
         }
-        &--yellow {
+        &--self-care {
             background-color: $yellow-300;
         }
     }
@@ -176,7 +184,7 @@ main {
     }
 }
 
-@media screen and (min-width: 23.438rem) {
+@media screen and (min-width: 23.438em) {
     
     .report {
 
@@ -187,17 +195,18 @@ main {
     }
 }
 
-@media screen and (min-width: 29.688rem) {
+@media screen and (min-width: 29.688em) {
     
     .report {
+
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         &__card {
             padding-top: 13%;
         }
 
-        &__header {
-            grid-column: span 2;
-        }
 
         &__card-body {
             display: flex;
@@ -208,33 +217,32 @@ main {
     }
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 48em) {
     
     .report {
+
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
 
         &__card {
             padding-top: 18%;
         }
 
-        &__header {
-            grid-column: span 3;
-        }
     }
 }
 
-@media screen and (min-width: 90rem) {
+@media screen and (min-width: 90em) {
     
     .report {
-        grid-template-columns: repeat(4, 1fr);
+        flex-direction: row;
 
         &__card {
             padding-top: 15%;
         }
 
-
         &__header {
-            grid-column: 1 / 1;
-            grid-row: 1 / span 2;
+            max-width: 15.938rem;
         }
 
         &__user-info {
