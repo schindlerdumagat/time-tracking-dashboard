@@ -120,7 +120,8 @@ main {
 }
 
 .report {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
   max-width: clamp(40.25rem, 2.25rem + 75vw, 69.75rem);
   width: 100%;
@@ -156,6 +157,7 @@ main {
   color: #BBC0FF;
 }
 .report__timeframe-list {
+  margin: 0 auto;
   align-self: center;
   width: 100%;
   max-width: 21.438rem;
@@ -176,28 +178,33 @@ main {
 .report__timeframe-btn--active {
   color: #ffffff;
 }
+.report__grid {
+  display: grid;
+  gap: clamp(1.5rem, 0.9286rem + 1.1905vw, 2rem);
+  width: 100%;
+}
 .report__card {
   border-radius: 15px;
   position: relative;
   overflow-y: hidden;
   padding-top: 10%;
 }
-.report__card--orange {
+.report__card--work {
   background-color: #FF8B64;
 }
-.report__card--blue {
+.report__card--play {
   background-color: #55C2E6;
 }
-.report__card--pink {
+.report__card--study {
   background-color: #FF5E7D;
 }
-.report__card--green {
+.report__card--exercise {
   background-color: #4BCF82;
 }
-.report__card--purple {
+.report__card--social {
   background-color: #7335D2;
 }
-.report__card--yellow {
+.report__card--self-care {
   background-color: #F1C75B;
 }
 .report__card-logo {
@@ -254,18 +261,18 @@ main {
   color: #BBC0FF;
 }
 
-@media screen and (min-width: 23.438rem) {
+@media screen and (min-width: 23.438em) {
   .report__card-body {
     flex-direction: row;
     align-items: center;
   }
 }
-@media screen and (min-width: 29.688rem) {
+@media screen and (min-width: 29.688em) {
+  .report__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .report__card {
     padding-top: 13%;
-  }
-  .report__header {
-    grid-column: span 2;
   }
   .report__card-body {
     display: flex;
@@ -274,24 +281,23 @@ main {
     align-items: flex-start;
   }
 }
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 48em) {
+  .report__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .report__card {
     padding-top: 18%;
   }
-  .report__header {
-    grid-column: span 3;
-  }
 }
-@media screen and (min-width: 90rem) {
+@media screen and (min-width: 90em) {
   .report {
-    grid-template-columns: repeat(4, 1fr);
+    flex-direction: row;
   }
   .report__card {
     padding-top: 15%;
   }
   .report__header {
-    grid-column: 1/1;
-    grid-row: 1/span 2;
+    max-width: 15.938rem;
   }
   .report__user-info {
     flex-direction: column;
