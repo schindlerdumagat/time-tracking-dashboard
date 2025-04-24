@@ -29,142 +29,45 @@
       <article class="report" aria-labelledby="user-report">
         <div class="report__header">
           <div class="report__user-info">
-            <img class="report__user-avatar" src="./images/image-jeremy.png" alt="" />
+            <img
+              class="report__user-avatar"
+              src="./images/image-jeremy.png"
+              alt=""
+            />
             <h2 id="user-report" class="report__user-name">
               <span class="report__header-inline-text">Report for</span>
               Jeremy Robson
             </h2>
           </div>
-          <div class="report__timeframe-list" role="tablist">
-            <button id="daily-button" class="report__timeframe-btn report__timeframe-btn--active" aria-selected="true" role="tab" aria-controls="work play study exercise social self-care">Daily</button>
-            <button id="weekly-button" class="report__timeframe-btn" aria-selected="false" role="tab" aria-controls="work play study exercise social self-care">Weekly</button>
-            <button id="monthly-button" class="report__timeframe-btn" aria-selected="false" role="tab" aria-controls="work play study exercise social self-care">Monthly</button>
-          </div>
-        </div>
-        <div id="work" class="report__card report__card--orange">
-          <img class="report__card-logo" src="./images/icon-work.svg" alt="" />
-          <div class="report__card-content">
-            <div class="report__card-header">
-              <h3 id="report-work" class="report__card-title">Work</h3>
-              <button class="report__card-btn" aria-labelledby="report-work">
-                <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+          <nav class="report__timeframe-list" role="tablist">
+              <button
+                id="daily"
+                class="report__timeframe-btn"
+                role="tab"
+                aria-controls="report-grid"
+              >
+                Daily
               </button>
-            </div>
-            <div class="report__card-body">
-              <time class="report__current" datetime=""></time>
-              <p class="report__previous"></p>
-            </div>
-          </div>
-        </div>
-        <div id="play" class="report__card report__card--blue">
-          <img class="report__card-logo" src="./images/icon-play.svg" alt="" />
-          <div class="report__card-content">
-            <div class="report__card-header">
-              <h3 id="report-play" class="report__card-title">Play</h3>
-              <button class="report__card-btn" aria-labelledby="report-play">
-                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                  d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                  fill="#BBC0FF"
-                  fill-rule="evenodd"
-                  />
-                </svg>
+              <button
+                id="weekly"
+                class="report__timeframe-btn"
+                role="tab"
+                aria-controls="report-grid"
+              >
+                Weekly
               </button>
-            </div>
-            <div class="report__card-body">
-              <time class="report__current" datetime=""></time>
-              <p class="report__previous"></p>
-            </div>
-          </div>
-        </div>
-        <div id="study" class="report__card report__card--pink">
-          <img class="report__card-logo" src="./images/icon-study.svg" alt="" />
-          <div class="report__card-content">
-            <div class="report__card-header">
-              <h3 id="report-study" class="report__card-title">Study</h3>
-              <button class="report__card-btn" aria-labelledby="report-study">
-                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                    fill="#BBC0FF"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+              <button
+                id="monthly"
+                class="report__timeframe-btn"
+                role="tab"
+                aria-controls="report-grid"
+              >
+                Monthly
               </button>
-            </div>
-            <div class="report__card-body">
-              <time class="report__current" datetime=""></time>
-              <p class="report__previous"></p>
-            </div>
-          </div>
+          </nav>
         </div>
-        <div id="exercise" class="report__card report__card--green">
-          <img class="report__card-logo" src="./images/icon-exercise.svg" alt="" />
-          <div class="report__card-content">
-            <div class="report__card-header">
-              <h3 id="report-exercise" class="report__card-title">Exercise</h3>
-              <button class="report__card-btn" aria-labelledby="report-exercise">
-                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                  d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                  fill="#BBC0FF"
-                  fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="report__card-body">
-              <time class="report__current" datetime=""></time>
-              <p class="report__previous"></p>
-            </div>
-          </div>
-        </div>
-        <div id="social" class="report__card report__card--purple">
-          <img class="report__card-logo" src="./images/icon-social.svg" alt="" />
-          <div class="report__card-content">
-            <div class="report__card-header">
-              <h3 id="report-social" class="report__card-title">Social</h3>
-              <button class="report__card-btn" aria-labelledby="report-social"> 
-                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                  d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                  fill="#BBC0FF"
-                  fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="report__card-body">
-              <time class="report__current" datetime=""></time>
-              <p class="report__previous"></p>
-            </div>
-          </div>
-        </div>
-        <div id="self-care" class="report__card report__card--yellow">
-          <img class="report__card-logo" src="./images/icon-self-care.svg" alt="" />
-          <div class="report__card-content">
-            <div class="report__card-header">
-              <h3 id="report-self-care" class="report__card-title">Self Care</h3>
-              <button class="report__card-btn" aria-labelledby="report-self-care">
-                <svg class="report__card-btn" width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                  d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                  fill="#BBC0FF"
-                  fill-rule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="report__card-body">
-              <time class="report__current" datetime=""></time>
-              <p class="report__previous"></p>
-            </div>
-          </div>
+        <div id="report-grid" class="report__grid">
+          <!-- Each report card will be generated using JavaScript -->
         </div>
       </article>
     </main>
