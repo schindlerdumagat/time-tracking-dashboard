@@ -45,7 +45,7 @@ function generateReport (reportData, timeframe) {
             <img class="report__card-logo" src="./images/icon-${formattedTitle}.svg" alt="" />
             <div class="report__card-content">
                 <div class="report__card-header">
-                <h3 id="report-work" class="report__card-title">${title}</h3>
+                <h3 id="report-${formattedTitle}" class="report__card-title">${title}</h3>
                 <button class="report__card-btn" aria-labelledby="report-work">
                     <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
                     <path
