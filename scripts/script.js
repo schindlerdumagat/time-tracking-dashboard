@@ -146,7 +146,7 @@ async function initializePage() {
         toggleButtonsDisabled(true);
         showLoading();
 
-        const response = await fetch("../data.json");
+        const response = await fetch("/data.json");
 
         if (!response.ok) {
             throw Error("Failed to fetch reports");
