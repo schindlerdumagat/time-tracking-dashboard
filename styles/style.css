@@ -1,0 +1,354 @@
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100dvh;
+  line-height: 1.2;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, button {
+  line-height: 1.2;
+}
+
+/* Balance text wrapping on headings */
+h1, h2 {
+  text-wrap: balance;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* FONTS */
+
+/* rubik-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/rubik-v31-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* rubik-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/rubik-v31-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* rubik-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../assets/fonts/rubik-v31-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* CUSTOM VARIABLES */
+
+:root {
+ 
+    /* COLORS */
+
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-black: hsl(0, 0%, 0%);
+    --clr-navy-950: hsl(226, 43%, 10%);
+    --clr-navy-900: hsl(235, 46%, 20%);
+    --clr-navy-800: hsl(235, 41%, 34%);
+    --clr-navy-200: hsl(236, 100%, 87%);
+    --clr-orange-300: hsl(15, 100%, 70%);
+    --clr-purple-700: hsl(264, 64%, 52%);
+    --clr-purple-600: hsl(246, 80%, 60%);
+    --clr-purple-500: hsl(235, 45%, 61%);
+    --clr-blue-300: hsl(195, 74%, 62%);
+    --clr-pink-400: hsl(348, 100%, 68%);
+    --clr-green-400: hsl(145, 58%, 55%);
+    --clr-yellow-300: hsl(43, 84%, 65%);
+    --clr-grey-200: hsl(0, 0%, 85%);
+
+    /* TYPOGRAPHY */
+
+    --ff-main: "Rubik", sans-serif;
+    --fs-body: 1.125rem;
+
+    /* SPACINGS */
+    
+    --space-0: 0rem;
+    --space-100: 0.5rem;
+    --space-200: 1rem;
+    --space-300: 1.5rem;
+    --space-400: 2rem;
+    --space-500: 2.5rem;
+    --space-700: 3.5rem;
+    --space-1000: 5rem;
+
+    /* BORDER RADIUS */
+
+    --rounded-sm: 15px;
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  padding: var(--space-1000) var(--space-300);
+  font-family: var(--ff-main);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--clr-white);
+  background-color: var(--clr-navy-950);
+}
+
+.report {
+  display: grid;
+  gap: var(--space-300);
+  max-width: 38.25rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.report__header {
+  background-color: var(--clr-navy-900);
+  border-radius: var(--rounded-sm);
+}
+
+.report__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-300);
+  background-color: var(--clr-purple-600);
+  border-radius: inherit;
+  padding: var(--space-400);
+}
+
+.report__user-avatar {
+  border: 3px solid var(--clr-white);
+  border-radius: 50%;
+}
+
+.report__title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+  font-size: .9375rem;
+  font-weight: 400;
+  color: var(--clr-navy-200);
+}
+
+.report__user-name {
+  font-size: clamp(1.5rem, 0.3571rem + 2.381vw, 2.5rem);
+  font-weight: 300;
+  color: var(--clr-white);
+}
+
+.report__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding-block: var(--space-300);
+}
+
+.report__tab {
+  background-color: transparent;
+  border: transparent;
+  color: var(--clr-purple-500);
+  transition: color 200ms ease;
+  cursor: pointer;
+}
+
+.report__tab:not(:disabled):hover {
+  color: var(--clr-white);
+}
+
+.report__tab:focus-visible {
+  outline: 2px solid var(--clr-navy-200);
+  outline-offset: 2px;
+}
+
+.report__tab[aria-selected=true] {
+  color: var(--clr-white);
+}
+
+.report__cards {
+  display: grid;
+  gap: var(--space-300);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding-block-start: var(--space-500);
+  background-repeat: no-repeat;
+  background-position: top calc(var(--space-100) * -1) right var(--space-200);
+  border-radius: var(--rounded-sm);
+}
+
+.card--work {
+  background-image: url("../assets/images/icon-work.svg");
+  background-color: var(--clr-orange-300);
+}
+.card--play {
+  background-image: url("../assets/images/icon-play.svg");
+  background-color: var(--clr-blue-300);
+}
+.card--study {
+  background-image: url("../assets/images/icon-study.svg");
+  background-color: var(--clr-pink-400);
+}
+.card--exercise {
+  background-image: url("../assets/images/icon-exercise.svg");
+  background-color: var(--clr-green-400);
+}
+.card--social {
+  background-image: url("../assets/images/icon-social.svg");
+  background-color: var(--clr-purple-700);
+}
+.card--self-care {
+  background-image: url("../assets/images/icon-self-care.svg");
+  background-color: var(--clr-yellow-300);
+}
+
+.card__details {
+  background-color: var(--clr-navy-900);
+  border-radius: inherit;
+  padding: var(--space-300);
+}
+
+.card:hover .card__details {
+  background-color: var(--clr-navy-800);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-100);
+}
+
+.card__title {
+  font-size: var(--fs-body);
+  font-weight: 500;
+}
+
+.card__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-100);
+}
+
+.card__duration {
+  font-size: clamp(2rem, 0.5687rem + 6.1069vw, 3.5rem);
+  font-weight: 300;
+}
+
+.card__timeframe {
+  font-size: .9375rem;
+  font-weight: 400;
+  color: var(--clr-navy-200);
+}
+
+.error {
+  color: var(--clr-pink-400);
+}
+
+@media screen and (min-width: 48rem) {
+ 
+  .report__tabs {
+    max-width: 21.4375rem;
+    margin: 0 auto;
+  }
+
+  .report__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    padding-block-start: var(--space-400);
+  }
+
+  .card__header {
+    margin-block-end: var(--space-200);
+  }
+
+  .card__body {
+    flex-direction: column;
+    align-items: start;
+  }
+
+}
+
+@media screen and (min-width: 90rem) {
+  
+  .report {
+    grid-template-columns: 1fr 3.2fr;
+    max-width: 69.75rem;
+  }
+
+  .report__user {
+    flex-direction: column;
+    align-items: start;
+    gap: var(--space-500);
+  }
+
+  .report__title {
+    margin-block-end: var(--space-700);
+  }
+
+  .report__tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: var(--space-300);
+    padding: var(--space-400); 
+  }
+
+  .card {
+    padding-block-start: var(--space-500);
+  }
+
+  .card__details {
+    padding: var(--space-400);
+  }
+
+  .card__header {
+    margin-block-end: var(--space-300);
+  }
+
+}
