@@ -125,11 +125,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   padding: var(--space-1000) var(--space-300);
   font-family: var(--ff-main);
   font-size: var(--fs-body);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--clr-white);
   background-color: var(--clr-navy-950);
 }
@@ -185,7 +184,7 @@ body {
 
 .report__tab {
   background-color: transparent;
-  border: transparent;
+  border: 1px solid var(--clr-navy-900);
   color: var(--clr-purple-500);
   transition: color 200ms ease;
   cursor: pointer;
@@ -214,43 +213,56 @@ body {
   flex-direction: column;
   justify-content: end;
   padding-block-start: var(--space-500);
+  background-image: var(--card-img);
   background-repeat: no-repeat;
   background-position: top calc(var(--space-100) * -1) right var(--space-200);
+  background-color: var(--card-bg);
   border-radius: var(--rounded-sm);
 }
 
+.card:focus {
+  outline: 2px solid var(--clr-navy-200);
+  outline-offset: 2px;
+}
+
 .card--work {
-  background-image: url("../assets/images/icon-work.svg");
-  background-color: var(--clr-orange-300);
+  --card-img: url("../assets/images/icon-work.svg");
+  --card-bg: var(--clr-orange-300);
 }
+
 .card--play {
-  background-image: url("../assets/images/icon-play.svg");
-  background-color: var(--clr-blue-300);
+  --card-img: url("../assets/images/icon-play.svg");
+  --card-bg: var(--clr-blue-300);
 }
+
 .card--study {
-  background-image: url("../assets/images/icon-study.svg");
-  background-color: var(--clr-pink-400);
+  --card-img: url("../assets/images/icon-study.svg");
+  --card-bg: var(--clr-pink-400);
 }
+
 .card--exercise {
-  background-image: url("../assets/images/icon-exercise.svg");
-  background-color: var(--clr-green-400);
+  --card-img: url("../assets/images/icon-exercise.svg");
+  --card-bg: var(--clr-green-400);
 }
+
 .card--social {
-  background-image: url("../assets/images/icon-social.svg");
-  background-color: var(--clr-purple-700);
+  --card-img: url("../assets/images/icon-social.svg");
+  --card-bg: var(--clr-purple-700);
 }
+
 .card--self-care {
-  background-image: url("../assets/images/icon-self-care.svg");
-  background-color: var(--clr-yellow-300);
+  --card-img: url("../assets/images/icon-self-care.svg");
+  --card-bg: var(--clr-yellow-300);
 }
 
 .card__details {
   background-color: var(--clr-navy-900);
   border-radius: inherit;
   padding: var(--space-300);
+  transition: background-color 200ms ease;
 }
 
-.card:hover .card__details {
+.card:is(:hover, :focus) .card__details {
   background-color: var(--clr-navy-800);
 }
 
@@ -299,10 +311,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .card {
-    padding-block-start: var(--space-400);
-  }
-
   .card__header {
     margin-block-end: var(--space-200);
   }
@@ -337,10 +345,6 @@ body {
     align-items: start;
     gap: var(--space-300);
     padding: var(--space-400); 
-  }
-
-  .card {
-    padding-block-start: var(--space-500);
   }
 
   .card__details {

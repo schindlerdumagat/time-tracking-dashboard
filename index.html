@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Time tracking dashboard</title>
+  <meta name="description" content="Time tracking dashboard showing daily, weekly, and monthly activity reports.">
 
   <link rel="preload" href="./assets/fonts/rubik-v31-latin-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="./assets/fonts/rubik-v31-latin-300.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -23,16 +24,16 @@
           <img class="report__user-avatar" src="./assets/images/image-jeremy.png" alt="Jeremy Robson" width="64" height="64">
           <h1 id="report-title" class="report__title">
             Report for
-            <strong class="report__user-name">Jeremy Robson</strong>
+            <span class="report__user-name">Jeremy Robson</span>
           </h1>
         </div>
-        <div class="report__tabs" role="tablist">
-          <button class="report__tab" id="daily" type="button" role="tab">Daily</button>
-          <button class="report__tab" id="weekly" type="button" role="tab">Weekly</button>
-          <button class="report__tab" id="monthly" type="button" role="tab">Monthly</button>
-        </div>
+        <nav class="report__tabs" role="tablist" aria-label="Timeframe selection">
+          <button id="tab-daily" class="report__tab" type="button" role="tab" aria-selected="true" aria-controls="report-panel" data-period="daily">Daily</button>
+          <button id="tab-weekly" class="report__tab" type="button" role="tab" aria-selected="false" aria-controls="report-panel" data-period="weekly">Weekly</button>
+          <button id="tab-monthly" class="report__tab" type="button" role="tab" aria-selected="false" aria-controls="report-panel" data-period="monthly">Monthly</button>
+        </nav>
       </section>
-      <section class="report__cards" role="tabpanel">
+      <section class="report__cards" id="report-panel" role="tabpanel" aria-labelledby="tab-daily" aria-live="polite">
         <!-- To Be filled with JavaScript generated report cards HTML elements -->
       </section>
     </article>
